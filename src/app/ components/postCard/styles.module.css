@@ -1,0 +1,39 @@
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  overflow: hidden;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.cardTitle {
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+.titleWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.imageWrapper {
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+.cardImage {
+  border-radius: 8px;
+}
+.rightContent {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.deleteButton {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
