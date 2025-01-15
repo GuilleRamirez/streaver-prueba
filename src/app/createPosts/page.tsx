@@ -36,7 +36,6 @@ export default function CreatePosts() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     setIsLoading(true);
-
     e.preventDefault();
     try {
       await createPost({

@@ -6,6 +6,7 @@ import { deletePost } from '../../actions/deletePost';
 import PostWithUser from '../../interface/postWithUserInterface';
 import { useState } from 'react';
 import ConfirmationModal from '../confirmationModal/confirmationModal';
+import showToast from '../../utils/showToast';
 
 interface PostCardProps {
   post: PostWithUser;
@@ -23,10 +24,11 @@ export default function PostCard({ post, handleDeletePost }: PostCardProps) {
     try {
       await deletePost(id);
       handleDeletePost(id);
-      setShowModal(false);
     } catch (error) {
       console.error(`Failed to delete post with id: ${id}`, error);
+      showToast('Failed to delete post, please try again', true);
     }
+    setShowModal(false);
   }
 
   return (
