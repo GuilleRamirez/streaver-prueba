@@ -1,23 +1,21 @@
-import { PrismaClient } from '@prisma/client';
+'use client';
+import styles from './styles.module.css';
+import Link from 'next/link';
 
-export default async function Home() {
-  const prisma = new PrismaClient();
-  const posts = await prisma.post.findMany({
-    include: {
-      user: true,
-    },
-  });
-
+export default function Home() {
   return (
-    <div>
-      <h1>Posts</h1>
-      {posts.map((post) => (
-        <article key={post.id}>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-          <small>By: {post.user.name}</small>
-        </article>
-      ))}
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h1>Welcome</h1>
+        <div className={styles.linkWrapper}>
+          <Link href='/posts' className={styles.link}>
+            Go to Posts
+          </Link>
+          <Link href='/createPosts' className={styles.link}>
+            Go to Create Posts
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

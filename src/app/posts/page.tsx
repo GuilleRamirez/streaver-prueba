@@ -1,9 +1,10 @@
 'use client';
 import styles from './styles.module.css';
 import PostCard from '../ components/postCard/postCard';
-import { fetchPosts } from '../actions/fetchPosts';
+import fetchPosts from '../actions/fetchPosts';
 import { useState, useEffect } from 'react';
 import PostWithUser from '../interface/postWithUserInterface';
+import showToast from '../utils/showToast';
 
 export default function Posts() {
   const [posts, setPosts] = useState<PostWithUser[]>([]);
@@ -15,6 +16,7 @@ export default function Posts() {
         setPosts(fetchedPosts);
       } catch (error) {
         console.error('Failed to fetch posts', error);
+        showToast('Failed to fetch posts, please reload the page', true);
       }
     };
 
@@ -23,6 +25,7 @@ export default function Posts() {
 
   function handleDeletePost(id: number) {
     setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+    showToast('Post deleted successfully');
   }
 
   return (
