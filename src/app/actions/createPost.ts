@@ -22,7 +22,7 @@ export default async function createPost({ title, body, userId }: CreatePostData
         user: true,
       },
     });
-
+    console.log(`Post created successfully`);
     return post;
   } catch (error) {
     console.error('Error creating post:', error);

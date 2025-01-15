@@ -44,7 +44,7 @@ export default function CreatePosts() {
         userId: Number(formData.userId),
       });
       showToast('Post created successfully');
-      setFormData({ title: '', body: '', userId: '' }); // Reset form
+      setFormData({ title: '', body: '', userId: '' });
     } catch (error) {
       console.error('Failed to create post', error);
       showToast('Failed to create post, please try again', true);
