@@ -14,6 +14,8 @@ To seed or reset the database run
 
 ```bash
 npm run seed
+
 #or
+
 npm run reset
 ```
